@@ -18,6 +18,6 @@
     "arena backgrounds and RGB nickname unlocked by holding tokens"
   ],
   "tags": ["arcade", "agar", "io", "canvas", "arena", "bots", "multiplayer", "online", "leaderboard", "web3", "solana", "skins"],
-  "version": "0.4.0",
+  "version": "0.4.1",
   "author": { "name": "SolMass" }
 }

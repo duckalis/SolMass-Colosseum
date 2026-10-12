@@ -1,6 +1,6 @@
 {
   "name": "solmass",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "private": true,
   "type": "module",
   "description": "SolMass — a competitive Web3 arena game inspired by Agar.io, on the iDos Games host shell: sign-in and the lobby come from @idosgames/app-shell, the game and the leaderboard are modules plugged in via src/modules.ts.",

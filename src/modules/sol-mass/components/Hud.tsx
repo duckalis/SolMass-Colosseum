@@ -82,7 +82,9 @@ const menuButton: CSSProperties = {
 const splitButton: CSSProperties = {
   ...chip,
   right: 12,
-  bottom: 12,
+  // Clear of the platform's "Made with iDos Games" badge, which a published build puts in this
+  // corner — it lay over the button, and a phone has no other way to split.
+  bottom: 52,
   padding: "14px 22px",
   borderRadius: 16,
   cursor: "pointer",

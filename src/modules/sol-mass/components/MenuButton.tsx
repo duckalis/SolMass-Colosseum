@@ -15,13 +15,11 @@ const TONES: Record<Tone, { face: string; edge: string; text: string }> = {
 
 export function MenuButton({
   tone,
-  type = "button",
   onClick,
   children,
 }: {
   tone: Tone;
-  type?: "button" | "submit";
-  onClick?: () => void;
+  onClick: () => void;
   children: ReactNode;
 }): ReactNode {
   // Inline styles have no :hover / :active, so the button tracks them itself.
@@ -30,7 +28,7 @@ export function MenuButton({
   const { face, edge, text } = TONES[tone];
   return (
     <button
-      type={type}
+      type="button"
       onClick={onClick}
       onPointerEnter={() => setHover(true)}
       onPointerLeave={() => {
@@ -54,7 +52,8 @@ export function MenuButton({
 }
 
 const button: CSSProperties = {
-  height: 50,
+  // Shorter on a short window (see MainMenu's card): five of them have to fit the game's frame.
+  height: "clamp(40px, 9vh, 50px)",
   border: "none",
   borderRadius: 14,
   fontFamily: "inherit",

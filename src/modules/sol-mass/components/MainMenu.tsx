@@ -24,15 +24,11 @@ export function MainMenu({
   const inputId = useId();
   const [focused, setFocused] = useState(false);
 
+  // Not a <form>: on the game's idosgames.com page the game runs in a sandboxed frame that does
+  // not allow forms, and a submit there never happens — "Play" did nothing.
   return (
     <div style={backdrop}>
-      <form
-        style={card}
-        onSubmit={(event) => {
-          event.preventDefault();
-          session.play();
-        }}
-      >
+      <div style={menuCard}>
         <h1 style={logo}>
           Sol<span style={{ color: "#14f195" }}>Mass</span>
         </h1>
@@ -49,6 +45,9 @@ export function MainMenu({
           spellCheck={false}
           value={nickname}
           onChange={(event) => session.setNickname(event.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === "Enter" && !event.nativeEvent.isComposing) session.play();
+          }}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
           style={{
@@ -57,7 +56,7 @@ export function MainMenu({
           }}
         />
 
-        <MenuButton tone="green" type="submit">
+        <MenuButton tone="green" onClick={session.play}>
           Play
         </MenuButton>
         <MenuButton tone="blue" onClick={session.playOnline}>
@@ -72,14 +71,22 @@ export function MainMenu({
         <MenuButton tone="white" onClick={actions.openLeaderboard}>
           Leaderboard
         </MenuButton>
-      </form>
+      </div>
     </div>
   );
 }
 
+// Sized by the window's height: the game's frame on its idosgames.com page is about 460px tall,
+// and all five buttons have to be on it without scrolling. A taller window gets the full sizes.
+const menuCard: CSSProperties = {
+  ...card,
+  gap: "clamp(7px, 2.2vh, 12px)",
+  padding: "clamp(14px, 4.4vh, 24px) 24px",
+};
+
 const logo: CSSProperties = {
   margin: "0 0 4px",
-  fontSize: 42,
+  fontSize: "clamp(28px, 7.6vh, 42px)",
   lineHeight: 1.1,
   fontWeight: 800,
   textAlign: "center",
@@ -87,7 +94,7 @@ const logo: CSSProperties = {
 };
 
 const input: CSSProperties = {
-  height: 46,
+  height: "clamp(38px, 8.4vh, 46px)",
   boxSizing: "border-box",
   padding: "0 14px",
   borderRadius: 12,

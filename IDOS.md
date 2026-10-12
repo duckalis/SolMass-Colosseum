@@ -29,7 +29,7 @@ platform — do not edit by hand.
 
 <!-- idos:modules:start -->
 
-- `sol-mass` (0.4.0) — src/modules/sol-mass/
+- `sol-mass` (0.4.1) — src/modules/sol-mass/
 - `leaderboard` (0.1.1) — src/modules/leaderboard/
 <!-- idos:modules:end -->
 
