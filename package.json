@@ -1,0 +1,43 @@
+{
+  "name": "solmass",
+  "version": "0.4.0",
+  "private": true,
+  "type": "module",
+  "description": "SolMass — a competitive Web3 arena game inspired by Agar.io, on the iDos Games host shell: sign-in and the lobby come from @idosgames/app-shell, the game and the leaderboard are modules plugged in via src/modules.ts.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "//": "Versions are pinned exactly: this is a seed for AI Coder projects, which build offline against a dependency allowlist baked at these versions (see scripts/pack-builder.mjs). Modules bring their own engine deps (three/phaser) when added.",
+  "dependencies": {
+    "@idosgames/app-shell": "0.12.2",
+    "@idosgames/core": "0.21.5",
+    "@idosgames/module-sdk": "0.10.1",
+    "@idosgames/react": "0.4.6",
+    "@idosgames/wallet": "0.6.4",
+    "@reown/appkit": "1.8.23",
+    "@reown/appkit-adapter-solana": "1.8.23",
+    "@reown/appkit-adapter-wagmi": "1.8.23",
+    "@solana/wallet-adapter-base": "0.9.27",
+    "@solana/web3.js": "1.98.4",
+    "@tanstack/react-query": "5.101.2",
+    "buffer": "6.0.3",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "wagmi": "3.7.2"
+  },
+  "//solana": "@reown/appkit-adapter-solana, @solana/web3.js, @solana/wallet-adapter-base and buffer are optional peers of @idosgames/wallet that its lazy wallet entry imports; `vite build` fails without them even though no file here imports them.",
+  "//overrides": "wagmi 3.7.2 imports viem/tempo/zones, which viem dropped in 2.56. Nothing here depends on viem directly, so a fresh install picks the newest 2.x and the build fails. 2.55.19 is the last version that has it — drop this once the pinned wagmi no longer needs it.",
+  "overrides": {
+    "viem": "2.55.19"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.4",
+    "typescript": "5.9.3",
+    "vite": "8.1.5"
+  }
+}

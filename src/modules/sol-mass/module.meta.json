@@ -1,0 +1,23 @@
+{
+  "id": "sol-mass",
+  "type": "template",
+  "summary": "Agar.io-style arena, offline against bots or online with other players, with skins and arena looks unlocked by holding the game's Solana token.",
+  "description": "The SolMass game: a mode of its own on a 2D canvas with its own screens drawn over the arena — a main menu (a nickname field and the Play, Play Online, Shop, Skins and Leaderboard buttons), Shop, Skins and Game Over. The cell follows the cursor (or a finger), food pellets add mass, the radius grows with the mass and the speed drops with the radius; a cell sitting deep enough in a bigger one is swallowed; Space (or the HUD's button) splits a cell in two, shooting one half toward the cursor, and the halves merge back after a delay. Play is an offline round against bots; Play Online puts the player on an arena shared with other people in one press (client.multiplayer + RealtimeSession, the room's host device simulates, the arena passes on when the host leaves). Being swallowed ends the round: the final mass goes to the title's 'top_mass' leaderboard. Skins and Shop are hold-to-unlock: the game reads — read-only — how much of the title's Solana token the player's linked wallet holds; solid colours are free, 500 tokens open six gradient skins and the arena's background colours, 1000 the rainbow skin and an RGB nickname that every player on an online arena sees. The picks are kept in the player's profile.",
+  "provides": [
+    "main menu with a nickname field",
+    "offline arena on a 2D canvas with bots",
+    "cell that follows the cursor",
+    "food that grows the cell and slows it down",
+    "splitting a cell and merging it back",
+    "online arena with quick match",
+    "host handover when the host leaves",
+    "game over screen with the final mass",
+    "final mass submitted to the leaderboard",
+    "read-only token balance of a linked Solana wallet",
+    "skins unlocked by holding tokens",
+    "arena backgrounds and RGB nickname unlocked by holding tokens"
+  ],
+  "tags": ["arcade", "agar", "io", "canvas", "arena", "bots", "multiplayer", "online", "leaderboard", "web3", "solana", "skins"],
+  "version": "0.4.0",
+  "author": { "name": "SolMass" }
+}

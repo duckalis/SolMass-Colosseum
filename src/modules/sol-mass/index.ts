@@ -1,0 +1,1 @@
+export { solMassModule } from "./module";

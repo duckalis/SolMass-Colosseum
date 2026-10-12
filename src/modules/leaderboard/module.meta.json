@@ -1,0 +1,31 @@
+{
+  "id": "leaderboard",
+  "type": "feature",
+  "summary": "Leaderboards screen for any game: boards as tabs, top players and my rank, rank rewards, score milestones and the reward of the last round.",
+  "description": "A ready leaderboards screen for ANY game, built on the @idosgames/react/ui kit. The title's enabled leaderboards are tabs; each shows a card with the player's score, rank and the countdown to the end of the round, and the top list with the player highlighted and medals for the top three. Rank rewards and score milestones open as popups (claim a milestone there). When a round ends, the reward for the place the player took pops up by itself with a Claim button (like LeaderboardCycleRewardPopup in the Unity SDK). A game that has something to play for the score registers a 'play' feature and a Play button appears on the card. Registers the 'leaderboard' feature; its badge counts boards with a reward waiting. Ships title-seed.json: a weekly best-score leaderboard with rank rewards.",
+  "provides": [
+    "leaderboard screen with several boards as tabs",
+    "top players and my rank",
+    "round countdown",
+    "rank rewards popup",
+    "score milestones with claiming",
+    "auto popup for the reward of the finished round",
+    "badge for waiting rewards",
+    "demo leaderboard settings"
+  ],
+  "tags": [
+    "leaderboard",
+    "ranking",
+    "top",
+    "milestones",
+    "rank-rewards",
+    "ui",
+    "screen",
+    "events"
+  ],
+  "author": {
+    "name": "iDos Games",
+    "url": "https://idosgames.com"
+  },
+  "version": "0.1.1"
+}
